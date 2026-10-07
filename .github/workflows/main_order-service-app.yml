@@ -6,7 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - order-service-app
 on:
   push:
     branches:
-      - main
+      - 'main'
   workflow_dispatch:
 
 jobs:
@@ -51,9 +51,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_3AA07C46BA49442296FCA363ABFAAAC9 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_CB9361DC853043BB85A9B8C572CD33DA }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_670A246B87714AC7B06A0D59AA3FDC97 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_2F5A68405B3744C4A57F72D2F8FD4ED2 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_BEFB4C48F50549F4B77DF789C5910953 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C5E027C163F04B5B9008C9853904FBC6 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
