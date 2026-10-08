@@ -15,14 +15,6 @@ app.use(cors());
 const RABBITMQ_CONNECTION_STRING = process.env.RABBITMQ_CONNECTION_STRING || 'amqp://localhost';
 const PORT = process.env.PORT || 3000;
 
-  app.get('/', (req, res) => {
-  res.status(200).json({
-    service: 'order-service',
-    status: 'running',
-    message: 'Algonquin Pet Store Order Service API'
-  });
-});
-
 // Define a POST route for creating orders
 // This route is accessed when a client (e.g., frontend) sends an order.
 app.post('/orders', (req, res) => {
@@ -59,8 +51,6 @@ app.post('/orders', (req, res) => {
   }
 
   amqp.connect(RABBITMQ_CONNECTION_STRING, (err, conn) => {
-    //console log if error connecting to RabbitMQ
-    console.error('Error connecting to RabbitMQ:', err.message);
     if (err) return finish(err);
     connection = conn;
     conn.on('error', finish);
