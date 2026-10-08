@@ -38,6 +38,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    env: 
+      VUE_APP_ORDER_SERVICE_URL: https://<order-service-app>.azurewebsites.net/
+      VUE_APP_PRODUCT_SERVICE_URL: https://<product-service-app>.azurewebsites.net/
     permissions:
       id-token: write #This is required for requesting the JWT
       contents: read #This is required for actions/checkout
